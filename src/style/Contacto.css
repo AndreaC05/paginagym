@@ -1,0 +1,214 @@
+.contacto {
+  background: linear-gradient(180deg, var(--black) 0%, #0a0a0a 100%);
+  padding: 120px 6vw 80px;
+  position: relative;
+}
+
+.contacto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+.contacto__container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contacto__header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.contacto__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.contacto__eyebrow-line {
+  width: 38px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.contacto__eyebrow-text {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.contacto__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+.contacto__title strong {
+  color: var(--gold);
+}
+
+.contacto__subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 245, 245, 0.6);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contacto__content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contacto__form {
+  background: rgba(46, 46, 46, 0.3);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  padding: 48px;
+}
+
+.contacto__form-group {
+  margin-bottom: 28px;
+}
+
+.contacto__form-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.contacto__form-input,
+.contacto__form-select,
+.contacto__form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(17, 17, 17, 0.6);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  color: var(--light);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+}
+
+.contacto__form-input:focus,
+.contacto__form-select:focus,
+.contacto__form-textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+}
+
+.contacto__form-textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contacto__form-btn {
+  width: 100%;
+  padding: 16px 32px;
+  background: var(--gold);
+  border: none;
+  color: var(--black);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
+}
+
+.contacto__form-btn:hover {
+  background: var(--light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.3);
+}
+
+.contacto__info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contacto__sedes-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.contacto__sede {
+  background: rgba(46, 46, 46, 0.3);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  padding: 32px;
+  transition: all 0.3s;
+}
+
+.contacto__sede:hover {
+  border-color: var(--gold);
+  transform: translateX(8px);
+}
+
+.contacto__sede-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  color: var(--light);
+  margin-bottom: 20px;
+}
+
+.contacto__sede-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(245, 245, 245, 0.7);
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.contacto__sede-icon {
+  color: var(--gold);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 1024px) {
+  .contacto__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contacto {
+    padding: 80px 5vw;
+  }
+  .contacto__form {
+    padding: 32px 24px;
+  }
+}

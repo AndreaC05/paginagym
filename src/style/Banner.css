@@ -1,0 +1,349 @@
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue);
+:root {
+  --black: #111111;
+  --gold: #c9a227;
+  --light: #f5f5f5;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 680px;
+  background: var(--black);
+  overflow: hidden;
+  font-family: Montserrat, sans-serif;
+}
+.banner__slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.banner__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s;
+}
+.banner__slide--active {
+  opacity: 1;
+  animation: kenBurns 5.5s ease-out both;
+}
+@keyframes kenBurns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.banner__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(17, 17, 17, 0.92),
+    rgba(17, 17, 17, 0.5) 50%,
+    rgba(17, 17, 17, 0.2)
+  );
+}
+.banner__accent-line {
+  position: absolute;
+  left: 6vw;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  z-index: 5;
+  overflow: hidden;
+}
+.banner__accent-line::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--gold) 20%,
+    var(--gold) 80%,
+    transparent
+  );
+  animation: lineReveal 1.5s 0.3s both;
+}
+@keyframes lineReveal {
+  from {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  to {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+.banner__corner {
+  position: absolute;
+  top: 28px;
+  right: 6vw;
+  z-index: 5;
+  width: 52px;
+  height: 52px;
+  opacity: 0;
+  animation: fadeIn 1s ease 0.8s both;
+}
+.banner__corner::before,
+.banner__corner::after {
+  content: "";
+  position: absolute;
+  background: var(--gold);
+}
+.banner__corner::before {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+}
+.banner__corner::after {
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+}
+.banner__content {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 6vw 0 calc(6vw + 36px);
+  max-width: 860px;
+  animation: contentIn 0.9s ease both;
+}
+@keyframes contentIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.banner__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.banner__eyebrow-line {
+  display: block;
+  width: 38px;
+  height: 1px;
+  background: var(--gold);
+}
+.banner__eyebrow-text {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.banner__heading {
+  font-family:
+    Bebas Neue,
+    sans-serif;
+  font-size: clamp(4rem, 10vw, 8.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--light);
+  letter-spacing: 0.03em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.banner__heading strong {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--gold);
+}
+.banner__sub {
+  font-size: 0.62rem;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.42);
+  margin-bottom: 46px;
+}
+.banner__cta-group {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.banner__btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 40px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: Montserrat, sans-serif;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
+  transition: color 0.3s;
+}
+.banner__btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--light);
+  transform: translateX(-101%);
+  transition: transform 0.42s ease;
+}
+.banner__btn-primary:hover {
+  color: var(--black);
+}
+.banner__btn-primary:hover::before {
+  transform: translateX(0);
+}
+.banner__btn-primary span,
+.banner__btn-primary .arrow {
+  position: relative;
+  z-index: 1;
+}
+.banner__btn-primary .arrow {
+  transition: transform 0.3s;
+}
+.banner__btn-primary:hover .arrow {
+  transform: translateX(5px);
+}
+.banner__btn-secondary {
+  font-size: 0.63rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.48);
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.3s;
+}
+.banner__btn-secondary::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.4s;
+}
+.banner__btn-secondary:hover {
+  color: var(--light);
+}
+.banner__btn-secondary:hover::after {
+  width: 100%;
+}
+.banner__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(245, 245, 245, 0.07);
+  z-index: 10;
+}
+.banner__progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  animation: progressFill 5s linear both;
+}
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.banner__scroll {
+  position: absolute;
+  bottom: 18px;
+  right: 6vw;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.5s both;
+}
+.banner__scroll-text {
+  font-size: 0.52rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.28);
+  writing-mode: vertical-rl;
+}
+.banner__scroll-bar {
+  width: 1px;
+  height: 44px;
+  background: rgba(245, 245, 245, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.banner__scroll-bar::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gold);
+  animation: scrollBar 2.2s ease-in-out 2s infinite;
+}
+@keyframes scrollBar {
+  0% {
+    top: -100%;
+  }
+  50% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 640px) {
+  .banner__content {
+    padding: 0 5vw 0 calc(5vw + 26px);
+  }
+  .banner__cta-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
